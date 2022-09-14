@@ -22,4 +22,5 @@ func main() {
 
     httpCode, body = nginxServer.handleRequest(createuserURL, "GET")
     fmt.Printf("\nUrl: %s\nHttpCode: %d\nBody: %s\n", appStatusURL, httpCode, body)
+	
 }

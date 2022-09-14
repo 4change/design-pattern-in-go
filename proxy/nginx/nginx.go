@@ -1,11 +1,12 @@
 package main
 
 type Nginx struct {
-    application       *Application
+    application       *Application		// 组合实现继承，继承自 Application 类
     maxAllowedRequest int
     rateLimiter       map[string]int
 }
 
+// 构造器
 func newNginxServer() *Nginx {
     return &Nginx{
         application:       &Application{},
@@ -14,6 +15,7 @@ func newNginxServer() *Nginx {
     }
 }
 
+// 实现 Server 接口 handleRequest 方法
 func (n *Nginx) handleRequest(url, method string) (int, string) {
     allowed := n.checkRateLimiting(url)
     if !allowed {
