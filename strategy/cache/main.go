@@ -6,7 +6,6 @@ func main() {
 
     cache.add("a", "1")
     cache.add("b", "2")
-
     cache.add("c", "3")
 
     lru := &Lru{}
