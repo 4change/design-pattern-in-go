@@ -17,11 +17,13 @@ func initCache(e EvictionAlgo) *Cache {
     }
 }
 
+// 重新设置数据淘汰算法对应的对象
 func (c *Cache) setEvictionAlgo(e EvictionAlgo) {
     c.evictionAlgo = e
 }
 
 func (c *Cache) add(key, value string) {
+    // 容量达到最大容量之后，触发数据淘汰算法
     if c.capacity == c.maxCapacity {
         c.evict()
     }
